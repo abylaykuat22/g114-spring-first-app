@@ -17,6 +17,7 @@
       <th>DESCRIPTION</th>
       <th>CATEGORY</th>
       <th>PRICE</th>
+      <th>DETAILS</th>
       </thead>
       <tbody>
       <tr th:each="item : ${items}">
@@ -25,6 +26,7 @@
         <td th:text="${item.description}"></td>
         <td th:text="${item.category}"></td>
         <td th:text="${item.price}"></td>
+        <td><a class="btn btn-dark" th:href="${'/details/'+item.id}">DETAILS</a></td>
       </tr>
       </tbody>
     </table>

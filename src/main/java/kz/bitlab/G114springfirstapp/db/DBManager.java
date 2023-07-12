@@ -2,6 +2,7 @@ package kz.bitlab.G114springfirstapp.db;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import kz.bitlab.G114springfirstapp.models.Item;
 
 public class DBManager {
@@ -25,5 +26,16 @@ public class DBManager {
     item.setId(id);
     id++;
     items.add(item);
+  }
+
+  public static Item getItemById(Long id) {
+    return items.stream()
+        .filter(item -> Objects.equals(item.getId(), id))
+        .findFirst()
+        .orElse(null);
+  }
+
+  public static void deleteItemById(Long id) {
+    items.removeIf(item -> Objects.equals(item.getId(), id));
   }
 }
